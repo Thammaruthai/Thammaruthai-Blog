@@ -38,16 +38,34 @@ function NavBar() {
   return (
     <>
       <nav className="w-full flex justify-center items-center border-b-2 border-stone-200">
-        <div className="flex flex-row justify-between items-center py-4 w-[90%]">
+        <div className="flex flex-row justify-between items-center py-4 w-10/12">
           <div className="text-3xl">hh.</div>
 
-          <div className="flex flex-row justify-between items-center gap-4">
+          <div className="flex flex-row justify-between items-center gap-4 max-sm:hidden">
             <button className="border-2 border-gray-500 bg-white w-32 h-12 rounded-full">
               Log in
             </button>
             <button className="border-2 border-black bg-[#26231E] w-32 h-12 text-slate-50 rounded-full">
               Sign in
             </button>
+          </div>
+
+          <div id="hambarger" className="sm:hidden ">
+            <svg
+              className="w-5 h-5 "
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
+            </svg>
           </div>
         </div>
       </nav>
@@ -58,16 +76,20 @@ function NavBar() {
 function HeroSection() {
   return (
     <>
-      <section className="w-full flex justify-center items-center py-8">
+      <section className="w-full flex justify-center items-center py-8 ">
         <div
           id="heroSectionContent"
-          className="w-[90%] flex justify-between items-center "
+          className="w-10/12 flex justify-between items-center gap-14 max-sm:flex-col max-sm:w-11/12"
         >
-          <div id="preWord" className="flex flex-col text-right w-[30%] gap-6 ">
-            <div id="preWord_head" className="text-[#26231E] font-semibold">
-              <h2 className="text-5xl">Stay</h2>
-              <h2 className="text-5xl">Informed,</h2>
-              <h2 className="text-5xl">Stay Inspired</h2>
+          <div
+            id="preWord"
+            className="flex flex-col text-right w-4/12 gap-6 max-sm:w-full max-sm:text-center"
+          >
+            <div
+              id="preWord_head"
+              className="text-[#26231E] font-semibold Stay Inspired max-sm:text-[2.5rem]"
+            >
+              <h2 className="text-5xl">Stay Informed, Stay Inspired</h2>
             </div>
 
             <div id="preWord_content" className="text-[#75716B] font-medium">
@@ -78,7 +100,10 @@ function HeroSection() {
             </div>
           </div>
 
-          <div id="profilePic" className="w-1/3 h-[529px] overflow-hidden ">
+          <div
+            id="profilePic"
+            className="w-1/3 h-[529px] overflow-hidden max-sm:w-full"
+          >
             <img
               src="./src/img/profilePic.jpg"
               alt="my profile picture"
@@ -86,10 +111,13 @@ function HeroSection() {
             />
           </div>
 
-          <div id="about author" className="w-[30%] text-[#75716B]">
+          <div
+            id="about author"
+            className="w-4/12 text-[#75716B] max-sm:w-full"
+          >
             <div id="author_section">
-              <h4 className="text-sm">-Author</h4>
-              <h2 className="text-3xl font-semibold text-[#43403B]">
+              <h4 className="text-xs">-Author</h4>
+              <h2 className="text-2xl font-semibold text-[#43403B]">
                 Thammaruthai W.
               </h2>
             </div>
