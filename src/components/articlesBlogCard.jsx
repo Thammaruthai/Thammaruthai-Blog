@@ -1,3 +1,5 @@
+import authorImage from "../img/profilePic.jpg";
+
 export function BlogCard({
   image,
   category,
@@ -5,10 +7,20 @@ export function BlogCard({
   description,
   author,
   date,
+  EnableCat,
 }) {
   return (
-    <div className="flex flex-col gap-4">
-      <a href="#" className="relative h-[212px] sm:h-[360px]">
+    <div
+      className={`flex flex-col gap-4 transition-transform ${
+        EnableCat === category ? "hover:scale-105" : ""
+      }`}
+    >
+      <a
+        href={EnableCat === category ? "#" : undefined}
+        className={`relative h-[212px] sm:h-[360px] ${
+          EnableCat !== category ? "pointer-events-none cursor-default" : ""
+        }`}
+      >
         <img
           className="w-full h-full object-cover rounded-md"
           src={image}
@@ -23,7 +35,7 @@ export function BlogCard({
           </span>
         </div>
 
-        <a href="#">
+        <a href={EnableCat === category ? "#" : undefined}>
           <h2 className="font-bold text-xl mb-2 line-clamp-2 hover:underline">
             {title}
           </h2>
