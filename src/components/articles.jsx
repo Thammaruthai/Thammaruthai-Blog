@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"; // นำเข้า Link สำหรับการนำทาง
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Search } from "lucide-react";
@@ -142,6 +143,7 @@ export function ArticlesSection() {
             {posts.map((post, index) => (
               <BlogCard
                 key={index}
+                postId={post.id} // ส่ง postId ไปยัง BlogCard
                 image={post.image}
                 category={post.category}
                 title={post.title}

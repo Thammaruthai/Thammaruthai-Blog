@@ -1,6 +1,8 @@
 import authorImage from "../img/profilePic.jpg";
+import { useNavigate } from "react-router-dom";
 
 export function BlogCard({
+  postId,
   image,
   category,
   title,
@@ -9,14 +11,21 @@ export function BlogCard({
   date,
   EnableCat,
 }) {
+  const navigate = useNavigate();
+  const handleCardClick = () => {
+    if (EnableCat === category) {
+      navigate(`/post/${postId}`);
+    }
+  };
+
   return (
     <div
       className={`flex flex-col gap-4 transition-transform ${
         EnableCat === category ? "hover:scale-105" : ""
       }`}
+      onClick={handleCardClick}
     >
-      <a
-        href={EnableCat === category ? "#" : undefined}
+      <div
         className={`relative h-[212px] sm:h-[360px] ${
           EnableCat !== category ? "pointer-events-none cursor-default" : ""
         }`}
@@ -26,7 +35,7 @@ export function BlogCard({
           src={image}
           alt={title}
         />
-      </a>
+      </div>
 
       <div className="flex flex-col">
         <div className="flex">
